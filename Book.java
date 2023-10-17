@@ -1,30 +1,33 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Book {
-    private String title;
-    private String author;
-    private List<Chapter> chapters = new ArrayList<>();
+public class Book {
 
-    // Constructor
-    public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
+    private String title;
+    private List<Author> authors = new ArrayList<>();
+    private List<Element> contents = new ArrayList<>();
+
+    public Book(String string) {
+        this.title = string;
     }
 
-    // Methods to add chapters and print book information
-    public Chapter addChapter(String title) {
-        Chapter chapter = new Chapter(title);
-        chapters.add(chapter);
-        return chapter;
+    public void addAuthor(Author author) {
+        authors.add(author);
+    }
+
+    public void addContent(Element content) {
+        contents.add(content);
     }
 
     public void print() {
-        System.out.println("Title: " + title);
-        System.out.println("Author: " + author);
-        System.out.println("Chapters:");
-        for (Chapter chapter : chapters) {
-            chapter.print();
+        System.out.println("Book: " + title);
+        System.out.println("Authors:");
+        for (Author author : authors) {
+            author.print();
+        }
+        for (Element element : contents) {
+            element.print();
         }
     }
+
 }

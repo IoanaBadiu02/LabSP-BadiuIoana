@@ -1,20 +1,25 @@
 public class lab2 {
     public static void main(String[] args) {
         // Create a Book object
-        Book myBook = new Book("Sample Book", "John Doe");
+        Book noapteBuna = new Book("Noapte Buna, copii!");
+        Author rpGheo = new Author("Radu Pavel Gheo");
+        noapteBuna.addAuthor(rpGheo);
 
-        // Add chapters, subchapters, and sections to the book
-        Chapter chapter1 = myBook.addChapter("Chapter 1");
-        SubChapter subChapter1 = chapter1.addSubChapter("SubChapter 1.1");
-        subChapter1.addParagraph("This is a paragraph.");
-        subChapter1.addImage("Image1");
-        subChapter1.addTable("Table 1");
-
-        Chapter chapter2 = myBook.addChapter("Chapter 2");
-        SubChapter subChapter2 = chapter2.addSubChapter("SubChapter 2.1");
-        subChapter2.addParagraph("Another paragraph.");
+        Section cap1 = new Section("Capitolul 1");
+        Section cap11 = new Section("Capitolul 1.1");
+        Section cap111 = new Section("Capitolul 1.1.1");
+        Section cap1111 = new Section("Capitolul 1.1.1.1");
+        noapteBuna.addContent(new Paragraph("Multumesc celor care..."));
+        noapteBuna.addContent(cap1);
+        cap1.add(new Paragraph("Moto capitol"));
+        cap1.add(cap11);
+        cap11.add(new Paragraph("Text from subchapter 1.1"));
+        cap11.add(cap111);
+        cap111.add(new Paragraph("Text from subchapter 1.1.1"));
+        cap111.add(cap1111);
+        cap1111.add(new Image("Image subchapter 1.1.1.1"));
 
         // Print information about the book and its chapters
-        myBook.print();
+        noapteBuna.print();
     }
 }
