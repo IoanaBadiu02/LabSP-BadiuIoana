@@ -1,8 +1,16 @@
-public class Image implements Element {
+import java.util.concurrent.TimeUnit;
+
+public class Image implements Element, Picture {
     private String imageName;
 
-    public Image(String imageName) {
-        this.imageName = imageName;
+    public Image(String name) {
+        imageName = name;
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void add(int index, Element element) {
@@ -14,6 +22,11 @@ public class Image implements Element {
     }
 
     public void remove(Element element) {
+        throw new UnsupportedOperationException("Not supported yet");
+    }
+
+    @Override
+    public String url() {
         throw new UnsupportedOperationException("Not supported yet");
     }
 
