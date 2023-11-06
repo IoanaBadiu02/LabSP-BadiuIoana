@@ -29,4 +29,15 @@ public class Section implements Element {
             element.print();
         }
     }
+
+    public void print(int lineLength) {
+        System.out.println(title);
+        for (Element element : content) {
+            if (element instanceof Paragraph) {
+                ((Paragraph) element).print(lineLength);
+            } else {
+                element.print();
+            }
+        }
+    }
 }

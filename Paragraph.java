@@ -1,8 +1,14 @@
 public class Paragraph implements Element {
     private String text;
+    private AlignStrategy alignStrategy;
 
     public Paragraph(String text) {
         this.text = text;
+        this.alignStrategy = new AlignLeft();
+    }
+
+    public void setAlignStrategy(AlignStrategy strategy) {
+        this.alignStrategy = strategy;
     }
 
     public void add(int index, Element element) {
@@ -20,4 +26,10 @@ public class Paragraph implements Element {
     public void print() {
         System.out.println("Paragraph: " + text);
     }
+
+    public void print(int lineLength) {
+        String alignedText = alignStrategy.render("Paragraph: " + text, lineLength);
+        System.out.println(alignedText);
+    }
+
 }
