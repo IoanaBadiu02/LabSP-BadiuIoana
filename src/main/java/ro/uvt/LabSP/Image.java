@@ -2,7 +2,7 @@ package ro.uvt.LabSP;
 
 import java.util.concurrent.TimeUnit;
 
-public class Image implements Element, Picture {
+public class Image implements Element, Picture, Visitee {
     private String imageName;
 
     public Image(String name) {
@@ -15,6 +15,9 @@ public class Image implements Element, Picture {
 
     }
 
+    public String getName() {
+        return imageName;
+    }
     public void add(int index, Element element) {
         throw new UnsupportedOperationException("Not supported yet");
     }
@@ -32,7 +35,8 @@ public class Image implements Element, Picture {
         throw new UnsupportedOperationException("Not supported yet");
     }
 
-    public void print() {
-        System.out.println("Image Name: " + imageName);
+    @Override
+    public void accept(Visitor v) {
+        v.visitImage(this);
     }
 }

@@ -27,9 +27,6 @@ public class Book {
         for (Author author : authors) {
             author.print();
         }
-        for (Element element : contents) {
-            element.print();
-        }
     }
 
 }

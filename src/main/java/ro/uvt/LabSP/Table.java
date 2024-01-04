@@ -1,12 +1,15 @@
 package ro.uvt.LabSP;
 
-class Table implements Element {
+class Table implements Element, Visitee {
     private String title;
 
     public Table(String title) {
         this.title = title;
     }
 
+    public String getTitle() {
+        return title;
+    }
     public void add(int index, Element element) {
         throw new UnsupportedOperationException("Not supported yet");
     }
@@ -19,7 +22,8 @@ class Table implements Element {
         throw new UnsupportedOperationException("Not supported yet");
     }
 
-    public void print() {
-        System.out.println("Table Title: " + title);
+    @Override
+    public void accept(Visitor v) {
+        v.visitTable(this);
     }
 }

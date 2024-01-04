@@ -9,12 +9,6 @@ public class ImageProxy implements Element, Picture {
         this.realImage = null;
     }
 
-    @Override
-    public void print() {
-        loadImage();
-        realImage.print();
-    }
-
     public void add(int index, Element element) {
         throw new UnsupportedOperationException("You cannot do that");
     }

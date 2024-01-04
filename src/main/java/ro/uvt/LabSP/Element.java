@@ -3,7 +3,6 @@ package ro.uvt.LabSP;
 import java.util.List;
 
 public interface Element {
-    void print();
 
     default List<Element> add(List<Element> l, Element element) {
         l.add(element);
