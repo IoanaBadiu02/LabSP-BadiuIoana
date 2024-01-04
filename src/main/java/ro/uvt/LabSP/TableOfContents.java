@@ -23,7 +23,4 @@ public class TableOfContents implements Element {
         throw new UnsupportedOperationException("Not supported yet");
     }
 
-    public void print() {
-        System.out.println("Table of Contents: " + tableName);
-    }
 }

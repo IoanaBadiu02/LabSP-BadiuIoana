@@ -5,4 +5,5 @@ public interface Visitor {
     void visitSection(Section s);
     void visitImage(Image i);
     void visitTable(Table t);
+    void visitBook(Book b);
 }

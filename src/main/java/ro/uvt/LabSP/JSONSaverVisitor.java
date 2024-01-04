@@ -20,4 +20,9 @@ public class JSONSaverVisitor implements Visitor{
     public void visitTable(Table t) {
 
     }
+
+    @Override
+    public void visitBook(Book b) {
+
+    }
 }
