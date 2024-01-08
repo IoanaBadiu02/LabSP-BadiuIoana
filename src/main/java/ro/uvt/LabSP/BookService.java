@@ -1,38 +1,39 @@
 package ro.uvt.LabSP;
 
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
-import java.util.Map;
+import ro.uvt.LabSP.Persistence.BooksRepository;
 
 @Service
 public class BookService {
-    private final Map<Long, Book> books = new HashMap<>();
-    private long nextBookId = 1;
+    private final BooksRepository booksRepository;
+
+    @Autowired
+    public BookService(BooksRepository booksRepository) {
+        this.booksRepository = booksRepository;
+    }
+
     public List<Book> getAllBooks() {
-        return new ArrayList<>(books.values());
+        return booksRepository.findAll();
     }
 
     public Book getBookById(Long id) {
-        return books.get(id);
+        return booksRepository.findById(id).orElse(null);
     }
 
     public void createBook(Book book) {
-        long bookId = nextBookId++;
-        book.setId(bookId);
-        books.put(bookId, book);
+        booksRepository.save(book);
     }
 
     public void updateBook(Long id, Book updatedBook) {
-        if (books.containsKey(id)) {
+        if (booksRepository.existsById(id)){
             updatedBook.setId(id);
-            books.put(id, updatedBook);
+            booksRepository.save(updatedBook);
         }
     }
 
     public void deleteBook(Long id) {
-        books.remove(id);
+        booksRepository.deleteById(id);
     }
 }

@@ -1,5 +1,7 @@
 package ro.uvt.LabSP;
 
+import ro.uvt.LabSP.services.Element;
+
 public class Paragraph implements Element, Visitee {
     private String text;
     private AlignStrategy alignStrategy;

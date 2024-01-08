@@ -1,5 +1,7 @@
 package ro.uvt.LabSP;
 
+import ro.uvt.LabSP.services.Element;
+
 import java.util.concurrent.TimeUnit;
 
 public class Image implements Element, Picture, Visitee {

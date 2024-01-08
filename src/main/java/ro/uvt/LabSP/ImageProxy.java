@@ -1,5 +1,7 @@
 package ro.uvt.LabSP;
 
+import ro.uvt.LabSP.services.Element;
+
 public class ImageProxy implements Element, Picture {
     String url;
     private Image realImage;

@@ -1,5 +1,7 @@
 package ro.uvt.LabSP;
 
+import ro.uvt.LabSP.services.Element;
+
 import java.util.List;
 
 public class RenderContentVisitor implements Visitor{

@@ -1,5 +1,7 @@
 package ro.uvt.LabSP;
 
+import ro.uvt.LabSP.services.Element;
+
 class Table implements Element, Visitee {
     private String title;
 
